@@ -94,6 +94,7 @@ models	user.py	Creates class user
 models/engine/	file_storage.py	Serializes instances to a JSON file and deserializes JSON file to instances
 To be updated
 
-AUTHORS
+AUTHORS:
 Ayomide Soniyi
-Samuel Eze
+,Eze Samuel
+
