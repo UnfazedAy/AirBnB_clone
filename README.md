@@ -46,101 +46,54 @@ Using the Console
 The AirBnB console can be run both interactively and non-interactively. To run the console in non-interactive mode, pipe any command(s) into an execution of the file console.py at the command line.
 
 $ echo "help" | ./console.py
-(hbnb) 
+CONCEPTS LEARNT
+How to create a Python package
+How to create a command interpreter in Python using the cmd module
+What is Unit testing and how to implement it in a large project
+How to serialize and deserialize a Class
+How to write and read a JSON file
+How to manage datetime
+What is an UUID
+What is *args and how to use it
+What is **kwargs and how to use it
+How to handle named arguments in a function
+SYNOPSIS
+Starting the Commandline Interpreter
+The Commandline Interpreter can be started by executing the command ./console.py. The console can create, destroy, and update objects. Type help within the console to get a list of command options and its function.
+
+Example:
+
+firdaus@ubuntu:~$ ./console.py
+(hbnb) help
+
 Documented commands (type help <topic>):
 ========================================
-EOF  all  count  create  destroy  help  quit  show  update
+EOF  create  help  quit
 
-(hbnb) 
-$
-Alternatively, to use the HolbertonBnB console in interactive mode, run the file console.py by itself:
+Undocumented commands:
+======================
+all  destroy  show  update
 
-$ ./console.py
-While running in interactive mode, the console displays a prompt for input:
-
-$ ./console.py
-(hbnb) 
-To quit the console, enter the command quit, or input an EOF signal (ctrl-D).
-
-$ ./console.py
+(hbnb) help quit
+Quit command to exit the program
 (hbnb) quit
-$
-$ ./console.py
-(hbnb) EOF
-$
-Console Commands
-The HolbertonBnB console supports the following commands:
+firdaus@ubuntu:~$
+OBJECTS IMPLEMENTED
+This repository contains the following files:
 
-create
-Usage: create <class>
-Creates a new instance of a given class. The class' ID is printed and the instance is saved to the file file.json.
+Folder	File	Description
+tests		Contains test files for AirBnb Clone
+console.py	Command line Interpreter for managing AirBnB objects
+models	base_model.py	Defines all common attributes/methods for other classes
+models	amenity.py	Creates class amenity
+models	city.py	Creates class city
+models	place.py	Creates class place
+models	review.py	Creates class review
+models	state.py	Creates class state
+models	user.py	Creates class user
+models/engine/	file_storage.py	Serializes instances to a JSON file and deserializes JSON file to instances
+To be updated
 
-$ ./console.py
-(hbnb) create BaseModel
-119be863-6fe5-437e-a180-b9892e8746b8
-(hbnb) quit
-$ cat file.json ; echo ""
-{"BaseModel.119be863-6fe5-437e-a180-b9892e8746b8": {"updated_at": "2019-02-17T2
-1:30:42.215277", "created_at": "2019-02-17T21:30:42.215277", "__class__": "Base
-Model", "id": "119be863-6fe5-437e-a180-b9892e8746b8"}}
-show
-Usage: show <class> <id> or <class>.show(<id>)
-Prints the string representation of a class instance based on a given id.
-
-$ ./console.py
-(hbnb) create User
-1e32232d-5a63-4d92-8092-ac3240b29f46
-(hbnb)
-(hbnb) show User 1e32232d-5a63-4d92-8092-ac3240b29f46
-[User] (1e32232d-5a63-4d92-8092-ac3240b29f46) {'id': '1e32232d-5a63-4d92-8092-a
-c3240b29f46', 'created_at': datetime.datetime(2019, 2, 17, 21, 34, 3, 635828), 
-'updated_at': datetime.datetime(2019, 2, 17, 21, 34, 3, 635828)}
-(hbnb) 
-(hbnb) User.show(1e32232d-5a63-4d92-8092-ac3240b29f46)
-[User] (1e32232d-5a63-4d92-8092-ac3240b29f46) {'id': '1e32232d-5a63-4d92-8092-a
-c3240b29f46', 'created_at': datetime.datetime(2019, 2, 17, 21, 34, 3, 635828), 
-'updated_at': datetime.datetime(2019, 2, 17, 21, 34, 3, 635828)}
-(hbnb) 
-destroy
-Usage: destroy <class> <id> or <class>.destroy(<id>)
-Deletes a class instance based on a given id. The storage file file.json is updated accordingly.
-
-$ ./console.py
-(hbnb) create State
-d2d789cd-7427-4920-aaae-88cbcf8bffe2
-(hbnb) create Place
-3e-8329-4f47-9947-dca80c03d3ed
-(hbnb)
-(hbnb) destroy State d2d789cd-7427-4920-aaae-88cbcf8bffe2
-(hbnb) Place.destroy(03486a3e-8329-4f47-9947-dca80c03d3ed)
-(hbnb) quit
-$ cat file.json ; echo ""
-{}
-all
-Usage: all or all <class> or <class>.all()
-Prints the string representations of all instances of a given class. If no class name is provided, the command prints all instances of every class.
-
-$ ./console.py
-(hbnb) create BaseModel
-fce2124c-8537-489b-956e-22da455cbee8
-(hbnb) create BaseModel
-450490fd-344e-47cf-8342-126244c2ba99
-(hbnb) create User
-b742dbc3-f4bf-425e-b1d4-165f52c6ff81
-(hbnb) create User
-8f2d75c8-fb82-48e1-8ae5-2544c909a9fe
-(hbnb)
-(hbnb) all BaseModel
-
-Testing 📏
-Unittests for the AirBnB project are defined in the tests folder. To run the entire test suite simultaneously, execute the following command:
-
-$ python3 unittest -m discover tests
-Alternatively, you can specify a single test file to run at a time:
-
-$ python3 unittest -m tests/test_console.py
-
-Authors ✒️
+AUTHORS
 Ayomide Soniyi
-Eze Samuel
-
+Samuel Eze
